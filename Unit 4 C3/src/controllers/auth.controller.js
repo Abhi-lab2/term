@@ -36,3 +36,15 @@ const register = async (req, res) => {
     return res.send(500).send({ message: error.message });
   }
 };
+
+const login = async (req, res) => {
+  try {
+    let user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      return res.send(400).send({ message: "Already exists" });
+    }
+  } catch (error) {
+    return res.send(500).send({ message: error.message });
+  }
+};
+module.exports = { register };
