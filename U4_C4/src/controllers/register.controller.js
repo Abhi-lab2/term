@@ -2,6 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
+const upload = require("../middleware/upload");
 
 const User = require("../models/user.model");
 
